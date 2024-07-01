@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<title>ホーム</title>
+	</head>
+	<body>
+        <div th:insert="common/sourceList :: sourceList"></div>
+		<div class="container-fluid">
+			<h2>ログイン画面</h2>
+			<div class="row">
+                <div class="col-3">
+                    <div class="sidebar_content">
+                        流れてもいいコンテンツ
+                    </div>
+                    <div class="sidebar_fixed">
+                        固定するコンテンツ
+                    </div>
+                </div>
+                <div class="col">
+                    メインコンテンツ
+                </div>
+            </div>
+		</div>
+	</body>
+</html>

@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.form.SignupForm;
 import com.example.demo.model.UserModel;
-import com.example.demo.repository.UserRepository;
 import com.github.dozermapper.core.Mapper;
 
 import lombok.RequiredArgsConstructor;
@@ -15,19 +14,19 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class SignupServiceImpl implements SignupService {
 
-    private final UserRepository userRepository;
+    private final UserService userService;
 
     private final Mapper mapper;
 
     @Override
     public Optional<UserModel> resistUser(SignupForm form) {
-        Optional<UserModel> userExisted = userRepository.findByEmail(form.getEmail());
+        Optional<UserModel> userExisted = userService.findByEmail(form.getEmail());
         if (userExisted.isPresent()) {
             return Optional.empty();
         }
 
         UserModel user = mapper.map(form, UserModel.class);
 
-        return Optional.of(userRepository.save(user));
+        return Optional.of(userService.createUser(user));
     }
 }

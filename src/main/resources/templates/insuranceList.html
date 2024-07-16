@@ -5,7 +5,16 @@
 		<title>ホーム</title>
 	</head>
 	<body>
-        <div th:insert="common/sourceList :: sourceList"></div>
+        <div th:insert="~{common/sourceList :: sourceList}"></div>
+        <nav class="navbar bg-info navbar-dark" th:fragment="header">
+            <div class="container-fluid">
+                <a class="navbar-brand" th:href="@{/plans}">商品管理システム</a>
+                <form method="post">
+                    <span class="text-light" th:text="|ログインID：${loggedInUser.firstName} ${loggedInUser.lastName}|"></span>
+                    <input type="submit" class="btn btn-light" value="ログアウト"/>
+                </form>
+            </div>
+        </nav>
 		<div class="container-fluid">
 			<h2>ログイン画面</h2>
 			<div class="row">
@@ -15,10 +24,43 @@
                     </div>
                     <div class="sidebar_fixed">
                         固定するコンテンツ
+                        固定するコンテンツ
+                        固定するコンテンツ
+                        固定するコンテンツ
+                        固定するコンテンツ
+                        固定するコンテンツ
+                        固定するコンテンツ
+                        固定するコンテンツ
+                        固定するコンテンツ
+                        固定するコンテンツ
+                        固定するコンテンツ
+                        固定するコンテンツ
+                        固定するコンテンツ
+                        固定するコンテンツ
+                        固定するコンテンツ
+                        固定するコンテンツ
+                        固定するコンテンツ
+                        固定するコンテンツ
+                        固定するコンテンツ
+                        固定するコンテンツ
+                        固定するコンテンツ
+                        固定するコンテンツ
+                        固定するコンテンツ
+                        固定するコンテンツ
                     </div>
                 </div>
                 <div class="col">
-                    メインコンテンツ
+                    <h2>保険プラン</h2>
+                    <div class="row">
+                        <div class="card" style="width: 18rem;"  th:each="insurance : ${insurances}">
+                            <img src="https://placehold.jp/150x100.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title" th:text="${insurance.name}"></h5>
+                                <p class="card-text" th:text="${insurance.description}"></p>
+                                <a th:href="@{/contract(param=${insurance.id})}" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 		</div>

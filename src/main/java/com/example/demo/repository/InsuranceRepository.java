@@ -7,5 +7,5 @@ import com.example.demo.model.InsuranceModel;
 
 @Repository
 public interface InsuranceRepository extends JpaRepository<InsuranceModel, Long> {
-    
+
 }

@@ -5,7 +5,7 @@
 		<title>ログイン画面</title>
 	</head>
 	<body>
-		<div th:insert="common/sourceList :: sourceList"></div>
+		<div th:insert="~{common/sourceList :: sourceList}"></div>
 		<div class="container-fluid">
 			<h2>ログイン画面</h2>
 			<div class="alert alert-danger d-flex align-item-center" role="alert" th:if="${errorMsg} != null">

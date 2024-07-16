@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class IsruranceServiceImpl implements InsuranceService {
+public class InsuranceServiceImpl implements InsuranceService {
     
     @Autowired
     private final InsuranceRepository insuranceRepository;

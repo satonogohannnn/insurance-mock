@@ -1,7 +1,7 @@
 package com.example.demo.model;
 
 import java.math.BigDecimal;
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,11 +11,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "insurance_policies")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class InsuranceModel {
     
     @Id

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>支払い</title>
+    <script>
+        function submitForm(param) {
+            var form = document.createElement('form');
+            form.method = 'post';
+            form.action = '/contract';
+
+            var input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'param';
+            input.value = param;
+
+            form.appendChild(input);
+            document.body.appendChild(form);
+            form.submit();
+        }
+    </script>
+</head>
+<body>
+    <div th:insert="~{common/sourceList :: sourceList}"></div>
+    <nav class="navbar bg-info navbar-dark" th:fragment="header">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/plans}">商品管理システム</a>
+            <form method="post">
+                <span class="text-light" th:text="|ログインID：${loggedInUser.firstName} ${loggedInUser.lastName}|"></span>
+                <input type="submit" class="btn btn-light" value="ログアウト"/>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <h1 th:text="${insurance.name}"></h1>
+        <p th:text="${insurance.description}"></p>
+        <p>プレミアム金額: <span th:text="${insurance.premiumAmount}"></span></p>
+        <p>カバレッジ金額: <span th:text="${insurance.coverageAmount}"></span></p>
+        <p>期間（月数）: <span th:text="${insurance.durationMonths}"></span></p>
+        <a href="#" th:onclick="'submitForm(' + ${insurance.id} + ');'" class="btn btn-primary">Go somewhere</a>
+    </div>
+</body>
+</html>

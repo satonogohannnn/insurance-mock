@@ -5,9 +5,9 @@ import lombok.Data;
 @Data
 public class SignupForm {
     
-    private String userName;
+    private String username;
 
-    private String pssword;
+    private String password;
     
     private String email;
 

@@ -5,7 +5,6 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.UserModel;
-import com.example.demo.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -13,9 +12,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class LoginService {
     
-    private final UserRepository repository;
+    private final UserService userService;
 
     public Optional<UserModel> searchUserById(String email) {
-        return repository.findByEmail(email);
+        return userService.findByEmail(email);
     }
 }

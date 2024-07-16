@@ -7,4 +7,5 @@ import com.example.demo.model.InsuranceModel;
 public interface InsuranceService {
 
     List<InsuranceModel> getAllInsurance();
+
 }
